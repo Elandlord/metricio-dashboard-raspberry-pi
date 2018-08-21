@@ -11,15 +11,15 @@ const options = {
 
 export const interval = '* * * * *'; // See https://crontab.guru/
 export const perform = async () => {
-  const google = await request(Object.assign(options, { uri: 'https://www.google.com' }));
+  const men = await request(Object.assign(options, { uri: 'https://www.mentechmedia.nl' }));
   const reddit = await request(Object.assign(options, { uri: 'https://www.reddit.com' }));
 
   return [
     {
-      target: 'GooglePing',
+      target: 'MENPing',
       data: {
-        status: google.statusCode,
-        time: google.elapsedTime,
+        status: men.statusCode,
+        time: men.elapsedTime,
       },
     },
     {
